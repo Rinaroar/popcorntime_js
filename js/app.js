@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Check the form data
         searchData.value.length > 1
-        ? getMovieList(searchData.value) //valeur de l'input avec keywords + peut aussi add autre numero de page (en param)
+        ? fetchFunction(searchData.value) //valeur de l'input avec keywords + peut aussi add autre numero de page (en param)
         : displayError(searchData, 'Minimum 1 caractère !'); //parametre de la fonction displayError
       })
     };
@@ -29,19 +29,37 @@ document.addEventListener('DOMContentLoaded', () => {
       //on capte le focus, enlève le texte d'erreur
     };
 
-    const getMovieList = (keywords, index = 1) => {
+    const fetchFunction = (keywords, index = 1) => {
+
+      let fetchUrl = null;
+
+      typeof keywords === 'number'
+      ? fetchUrl = `https://api.themoviedb.org/3/movie/${keywords}?api_key=d458c20e1abcc9417413972af9541834`
+      : fetchUrl = theMoviedbURL + keywords + '&page=' + index
+
+      fetch( fetchUrl )
+      .then( response => response.ok ? response.json() : 'Response not OK')
+      .then( jsonData => {
+        typeof keywords === 'number'
+        ? displayPopin(jsonData)
+        : displayMovieList(jsonData.results)
+      })
+      .catch(err => console.error(err));
+    };
+
+   /* const getMovieList = (keywords, index = 1) => {
       fetch( theMoviedbURL + keywords + '&page=' + index)
       .then( response => response.ok ? response.json() : 'Response not OK')
       .then( jsonData => displayMovieList(jsonData.results)) //tout de suite le tableau de resultats de la recherche
       .catch(err => console.error(err));
-    };
+    }; */
 
-    const getMovieDetails = (id) => {
+    /*  const getMovieDetails = (id) => {
       fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=d458c20e1abcc9417413972af9541834`)
       .then( response => response.ok ? response.json() : 'Response not OK')
       .then( jsonData => displayPopin(jsonData))
       .catch(err => console.error(err));
-    };
+    }; */
 
     const displayMovieList = collection => {
       searchData.value = '';
@@ -70,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const getPopinLink = (linkCollection) => {
         for (let link of linkCollection){
           link.addEventListener('click', () => {
-            getMovieDetails(link.getAttribute('movie-id'));
+            //+var = parseInt(var) || parseFloat(var)
+            fetchFunction(+link.getAttribute('movie-id'));
           });
         };
       };
