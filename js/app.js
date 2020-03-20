@@ -27,29 +27,45 @@ document.addEventListener('DOMContentLoaded', () => {
   // FONCTIONS
 
 
-    /* const registerUser = () => {
-      registerForm.addEventListener('submit', event => {
+    const registerUser = (formTag, emailTag, passwordTag, pseudoTag) => {
+      // capter le formulaire
+      document.querySelector(formTag).addEventListener('submit', event => {
         event.preventDefault();
 
-        // Check form data
-        let registerError = 0;
-
-        if(userEmail.value.length < 5) {
-          registerError++;
-        }
-        if(userPassword.value.length < 5){
-          registerError++;
-        }
-        if(userPseudo.value.length < 2){
-          registerError++;
-        }
-
-        registerError != 0
-          ? fetchForm(registerForm.value)
-          : displayError();
+        new FETCHrequest(
+          'https://kebabtv.dwsapp.io/api/register',
+          'POST',
+          {
+            email: document.querySelector(emailTag).value,
+            password:document.querySelector(passwordTag).value,
+            pseudo:document.querySelector(pseudoTag).value
+          }
+        )
+        .sendRequest()
+        .then( jsonData => console.log(jsonData))
+        .catch( jsonError => console.log(jsonError))
       })
     };
- */
+
+    const login = (formTag, emailTag, passwordTag) => {
+      // capter le formulaire
+      document.querySelector(formTag).addEventListener('submit', event => {
+        event.preventDefault();
+
+        new FETCHrequest(
+          'https://kebabtv.dwsapp.io/api/login',
+          'POST',
+          {
+            userEmail: document.querySelector(emailTag).value,
+            userPassword:document.querySelector(passwordTag).value,
+          }
+        )
+        .sendRequest()
+        .then( jsonData => console.log(jsonData))
+        .catch( jsonError => console.log(jsonError))
+      })
+    };
+
 
     // SEARCH MOVIES
 
@@ -153,11 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       }
 
-    // Lancer IHM
 
+    // Lancer IHM
     getFormSubmit();
-    //registerUser();
-});
+    registerUser('#registerForm', '#registerForm [name="userEmail"]', '#registerForm [name="userPassword"]', '#registerForm [name="userPseudo"]');
+    login('#loginForm', '#loginForm [name="userEmail"]', '#loginForm [name="userPassword"]');
+  })
 
 
 // fonction de callback = fonction qui se delenche à la fin d'une autre fonction

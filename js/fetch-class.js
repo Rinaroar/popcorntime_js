@@ -1,5 +1,3 @@
-// CLASS
-
 class FETCHrequest {
 
   constructor(url, requestType, data = null) {
@@ -22,7 +20,7 @@ class FETCHrequest {
   }
 
 
-  fetch(){
+  sendRequest(){
       return new Promise( (resolve, reject) => {
           fetch( this.url, this.fetchOptions )
           .then( fetchResponse => {
@@ -43,7 +41,7 @@ class FETCHrequest {
 }
 
 
-// APP
+/* // APP
 new FETCHrequest(`https://api.themoviedb.org/3/search/movie?api_key=6fd32a8aef5f85cabc50cbec6a47f92f&query=alien&page=1`, 'GET')
 .fetch()
 .then( jsonData => {
@@ -51,4 +49,4 @@ console.log(jsonData)
 })
 .catch( jsonError => {
 console.log(jsonError)
-})
+}) */
