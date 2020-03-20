@@ -3,22 +3,63 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // DECLARATIONS
+
+    // Register and login
+    const apiUrl = 'https://api.dwsapp.io';
+    const mainNav = document.querySelector('header nav');
+    const registerForm = document.querySelector('#registerForm');
+    const userEmail = document.querySelector('[name="userEmail"]');
+    const userPassword = document.querySelector('[name="userPassword"]');
+    const userPseudo = document.querySelector('[name="userPseudo"]');
+
+    // Search form
     const searchForm = document.querySelector('header form');
     const searchLabel = document.querySelector('header form span');
     const searchData = document.querySelector('[name="searchData"]'); // selecteur de balise HTML
+
+    // Display movies
     const theMoviedbURL = 'https://api.themoviedb.org/3/search/movie?api_key=d458c20e1abcc9417413972af9541834&language=en-US&query=';
     const movieList = document.querySelector('#movieList');
     const moviePopin = document.querySelector('#moviePopin article');
 
 
+
   // FONCTIONS
+
+
+    /* const registerUser = () => {
+      registerForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        // Check form data
+        let registerError = 0;
+
+        if(userEmail.value.length < 5) {
+          registerError++;
+        }
+        if(userPassword.value.length < 5){
+          registerError++;
+        }
+        if(userPseudo.value.length < 2){
+          registerError++;
+        }
+
+        registerError != 0
+          ? fetchForm(registerForm.value)
+          : displayError();
+      })
+    };
+ */
+
+    // SEARCH MOVIES
+
     const getFormSubmit = () => {
       searchForm.addEventListener('submit', (event) => { // fonction de callback
         event.preventDefault(); // plus de soumission du form pour recuperer les données en js,
 
         // Check the form data
         searchData.value.length > 1
-        ? fetchFunction(searchData.value) //valeur de l'input avec keywords + peut aussi add autre numero de page (en param)
+        ? searchMovie(searchData.value) //valeur de l'input avec keywords + peut aussi add autre numero de page (en param)
         : displayError(searchData, 'Minimum 1 caractère !'); //parametre de la fonction displayError
       })
     };
@@ -29,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
       //on capte le focus, enlève le texte d'erreur
     };
 
-    const fetchFunction = (keywords, index = 1) => {
+    const searchMovie = (keywords, index = 1) => {
 
       let fetchUrl = null;
 
@@ -47,19 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
       .catch(err => console.error(err));
     };
 
-   /* const getMovieList = (keywords, index = 1) => {
-      fetch( theMoviedbURL + keywords + '&page=' + index)
-      .then( response => response.ok ? response.json() : 'Response not OK')
-      .then( jsonData => displayMovieList(jsonData.results)) //tout de suite le tableau de resultats de la recherche
-      .catch(err => console.error(err));
-    }; */
 
-    /*  const getMovieDetails = (id) => {
-      fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=d458c20e1abcc9417413972af9541834`)
-      .then( response => response.ok ? response.json() : 'Response not OK')
-      .then( jsonData => displayPopin(jsonData))
-      .catch(err => console.error(err));
-    }; */
+    // DISPLAY MOVIES
 
     const displayMovieList = collection => {
       searchData.value = '';
@@ -89,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let link of linkCollection){
           link.addEventListener('click', () => {
             //+var = parseInt(var) || parseFloat(var)
-            fetchFunction(+link.getAttribute('movie-id'));
+            searchMovie(+link.getAttribute('movie-id'));
           });
         };
       };
@@ -124,7 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
     // Lancer IHM
+
     getFormSubmit();
+    //registerUser();
 });
 
 
