@@ -1,16 +1,8 @@
-
-// Attendre le chargement du DOM
-document.addEventListener('DOMContentLoaded', () => {
-
   // DECLARATIONS
 
     // Register and login
-    const apiUrl = 'https://api.dwsapp.io';
+    const apiUrl = 'https://api.dwsapp.io/api';
     const mainNav = document.querySelector('header nav');
-    const registerForm = document.querySelector('#registerForm');
-    const userEmail = document.querySelector('[name="userEmail"]');
-    const userPassword = document.querySelector('[name="userPassword"]');
-    const userPseudo = document.querySelector('[name="userPseudo"]');
 
     // Search form
     const searchForm = document.querySelector('header form');
@@ -26,19 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // FONCTIONS
 
-
     const registerUser = (formTag, emailTag, passwordTag, pseudoTag) => {
       // capter le formulaire
       document.querySelector(formTag).addEventListener('submit', event => {
         event.preventDefault();
 
         new FETCHrequest(
-          'https://kebabtv.dwsapp.io/api/register',
+          apiUrl + '/register',
           'POST',
           {
             email: document.querySelector(emailTag).value,
-            password:document.querySelector(passwordTag).value,
-            pseudo:document.querySelector(pseudoTag).value
+            password: document.querySelector(passwordTag).value,
+            pseudo: document.querySelector(pseudoTag).value
           }
         )
         .sendRequest()
@@ -53,23 +44,41 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         new FETCHrequest(
-          'https://kebabtv.dwsapp.io/api/login',
+          apiUrl + '/login',
           'POST',
           {
-            userEmail: document.querySelector(emailTag).value,
-            userPassword:document.querySelector(passwordTag).value,
+            email: document.querySelector(emailTag).value,
+            password: document.querySelector(passwordTag).value,
           }
         )
         .sendRequest()
-        .then( jsonData => console.log(jsonData))
+        .then( jsonData => {
+          console.log(jsonData);
+          /* localStorage.setItem("token", jsonData.token) */
+        })
         .catch( jsonError => console.log(jsonError))
       })
     };
 
+    const userAccount = () => {
+        new FETCHrequest(
+          apiUrl + '/me',
+          'POST',
+          { token: localStorage.getItem('token') }
+        )
+        .sendRequest()
+        .then( jsonData => {
+          // Masquer les formulaires
+          document.querySelector('#registerForm').classList.add('hidden');
+          document.querySelector('#loginForm').classList.add('hidden');
+          console.log(jsonData)
+        })
+        .catch( jsonError => console.log(jsonError))
+    };
+
 
     // SEARCH MOVIES
-
-    const getFormSubmit = () => {
+    const getSearchSubmit = () => {
       searchForm.addEventListener('submit', (event) => { // fonction de callback
         event.preventDefault(); // plus de soumission du form pour recuperer les données en js,
 
@@ -116,12 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <article>
           <figure>
             <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
-            <figcaption movie-id="${collection[i].id}">${collection[i].original_title} (Voir plus...)</figcaption>
+            <figcaption movie-id="${collection[i].id}">${collection[i].original_title} (See more...)</figcaption>
           </figure>
           <div class="overview">
             <div>
               <p>${collection[i].overview}</p>
-              <button> Voir le film </button>
             </div>
           </div>
         </article>
@@ -150,14 +158,37 @@ document.addEventListener('DOMContentLoaded', () => {
           <div>
             <h2>${data.original_title}</h2>
             <p>${data.overview}</p>
-            <button> Voir en streaming </button>
-            <button id="closeButton"> Close</button>
+            <button id="addFav">Add in Favorites</button>
+            <button id="closeButton">Close</button>
           </div>
         `;
 
         moviePopin.parentElement.classList.add('open');
+        addFavorite(document.querySelector('#addFav'), data);
+
         closePopin(document.querySelector('#closeButton'));
       };
+
+      // Ajout des favoris
+
+      const addFavorite = (button, data) => {
+        button.addEventListener('click', () => {
+
+          new FETCHrequest(
+            apiUrl + '/favorite',
+            'POST',
+            {
+              id: data.id,
+              title: data.original_title,
+              //token:
+            }
+          )
+          .sendRequest()
+          .then( jsonData => console.log(jsonData))
+          .catch( jsonError => console.log(jsonError))
+        })
+      };
+
 
       const closePopin = (button) => {
         button.addEventListener('click', () => {
@@ -170,10 +201,27 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
 
+    // Attendre le chargement du DOM
+    document.addEventListener('DOMContentLoaded', () => {
+
     // Lancer IHM
-    getFormSubmit();
+
+    if(localStorage.getItem('token') !== null){
+      // Récupérer info user avec l'user_id
+      userAccount();
+    }
+    else{
+      // Afficher les formulaires
+      document.querySelector('#registerForm').classList.remove('hidden');
+      document.querySelector('#loginForm').classList.remove('hidden');
+    }
+
+    getSearchSubmit();
+
     registerUser('#registerForm', '#registerForm [name="userEmail"]', '#registerForm [name="userPassword"]', '#registerForm [name="userPseudo"]');
-    login('#loginForm', '#loginForm [name="userEmail"]', '#loginForm [name="userPassword"]');
+
+    login('#loginForm', '#loginForm [name="loginEmail"]', '#loginForm [name="loginPassword"]');
+
   })
 
 

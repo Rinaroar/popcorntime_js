@@ -14,6 +14,17 @@ figure {
   transition: all .3s linear;
 }
 
+#registerForm, #loginForm, footer{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+footer{
+  text-align: center;
+}
+
 /* figure:hover{
   transform: rotateY(90deg);
 }
