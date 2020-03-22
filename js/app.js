@@ -1,7 +1,7 @@
   // DECLARATIONS
 
     // Register and login
-    const apiUrl = 'https://api.dwsapp.io/api';
+    const apiUrl = 'https://kebabtv.dwsapp.io/api';
     const mainNav = document.querySelector('header nav');
 
     // Search form
@@ -122,17 +122,17 @@
 
       for (let i = 0; i < collection.length; i++){
         movieList.innerHTML += `
-        <article>
-          <figure>
-            <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
-            <figcaption movie-id="${collection[i].id}">${collection[i].original_title} (See more...)</figcaption>
-          </figure>
-          <div class="overview">
-            <div>
-              <p>${collection[i].overview}</p>
+          <article>
+            <figure>
+              <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
+              <figcaption movie-id="${collection[i].id}">${collection[i].original_title} <span class="seeMore">(See more...)<span></figcaption>
+            </figure>
+            <div class="overview">
+              <div>
+                <p>${collection[i].overview}</p>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
         `;
       };
 
@@ -169,7 +169,7 @@
         closePopin(document.querySelector('#closeButton'));
       };
 
-      // Ajout des favoris
+      // ADD FAVORITES
 
       const addFavorite = (button, data) => {
         button.addEventListener('click', () => {
@@ -180,7 +180,7 @@
             {
               id: data.id,
               title: data.original_title,
-              //token:
+              token: localStorage.getItem('token')
             }
           )
           .sendRequest()
@@ -188,7 +188,6 @@
           .catch( jsonError => console.log(jsonError))
         })
       };
-
 
       const closePopin = (button) => {
         button.addEventListener('click', () => {

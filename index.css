@@ -4,25 +4,58 @@ body{
 
 header{
   position: relative;
+}
+
+button {
+  background-color: rgba(28, 46, 212);
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color:rgb(79, 89, 179) ;
+  color: white;
+  border:none;
+}
+
+#closeButton {
+  background-color: black ;
+  color: white;
+  border:none;
+}
+
+#closeButton:hover {
+  background-color: rgb(54, 54, 54) ;
+  color: white;
+  border:none;
+}
+
+.split {
+  height: 100%;
+  width: 60%;
+  position: fixed;
   z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
-figure {
-  background: white;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
-  padding: 2rem;
-  transition: all .3s linear;
+.right {
+  right: 0;
+  background-color:black;
+  padding-left: 65px;
 }
 
-#registerForm, #loginForm, footer{
+#searchData {
+  width: 45%;
+  margin: 5px 5px 0px 0px;
+}
+
+#registerForm, #loginForm{
   width: 50%;
-  display: block;
+  /* display: block;
   margin-left: auto;
-  margin-right: auto
-}
-
-footer{
-  text-align: center;
+  margin-right: auto */
 }
 
 /* figure:hover{
@@ -36,6 +69,29 @@ figure:hover + div.overview{
 #movieList article {
   display: inline-block;
   position: relative;
+}
+
+figure {
+  position: relative;
+  background: white;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  transition: all .3s linear;
+}
+
+/* .image {
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+figure:hover .image{
+  opacity: 0,3;
+} */
+
+
+.seeMore {
+ font-style: italic;
+ cursor: pointer;
 }
 
 .overview {
@@ -57,13 +113,18 @@ figure:hover + div.overview{
   width: 50%;
 }
 
+article {
+ max-width: 45%;
+}
+
+
 #moviePopin {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(32, 32, 32, 0.76);
   z-index: 0;
   display: flex;
   flex-direction: column;
@@ -81,6 +142,7 @@ figure:hover + div.overview{
 }
 
 #moviePopin article {
+  position: relative;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -91,4 +153,19 @@ figure:hover + div.overview{
 
 #moviePopin article div{
   width: calc( 50% - 1rem );
+}
+
+/* .fa-heart {
+  position: absolute;
+  top: 26px;
+  right: 37px;
+  font-size: 30px;
+  color: rgba(28, 46, 212);
+} */
+
+footer{
+  display: block;
+  text-align: center;
+  width: 50%;
+  margin-top: 61%;
 }
