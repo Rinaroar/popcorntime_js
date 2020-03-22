@@ -2,8 +2,20 @@ body{
   padding: 2rem;
 }
 
+.hidden{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
 header{
   position: relative;
+}
+
+main{
+  margin-top: 15%;
 }
 
 button {

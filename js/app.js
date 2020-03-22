@@ -18,6 +18,8 @@
 
   // FONCTIONS
 
+    // REGISTER AND LOGIN
+
     const registerUser = (formTag, emailTag, passwordTag, pseudoTag) => {
       // capter le formulaire
       document.querySelector(formTag).addEventListener('submit', event => {
@@ -55,6 +57,8 @@
         .then( jsonData => {
           localStorage.setItem("token", jsonData.data.token);
           console.log(jsonData.data.token);
+          // Récupère les informations user
+          userAccount();
         })
         .catch( jsonError => console.log(jsonError))
       })
@@ -71,13 +75,15 @@
           // Masquer les formulaires
           document.querySelector('#registerForm').classList.add('hidden');
           document.querySelector('#loginForm').classList.add('hidden');
-          console.log(jsonData)
+          document.querySelector('#favoritesList').classList.add('show');
+          displayFav(jsonData);
         })
         .catch( jsonError => console.log(jsonError))
     };
 
 
     // SEARCH MOVIES
+
     const getSearchSubmit = () => {
       searchForm.addEventListener('submit', (event) => { // fonction de callback
         event.preventDefault(); // plus de soumission du form pour recuperer les données en js,
@@ -125,7 +131,7 @@
           <article>
             <figure>
               <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
-              <figcaption movie-id="${collection[i].id}">${collection[i].original_title} <span class="seeMore">(See more...)<span></figcaption>
+              <figcaption movie-id="${collection[i].id}">${collection[i].original_title}<span class="seeMore">(See more...)<span></figcaption>
             </figure>
             <div class="overview">
               <div>
@@ -140,7 +146,7 @@
     };
 
       const getPopinLink = (linkCollection) => {
-        for (let link of linkCollection){
+        for (let link of linkCollection) {
           link.addEventListener('click', () => {
             //+var = parseInt(var) || parseFloat(var)
             searchMovie(+link.getAttribute('movie-id'));
@@ -164,15 +170,27 @@
         `;
 
         moviePopin.parentElement.classList.add('open');
-        addFavorite(document.querySelector('#addFav'), data);
+        document.querySelector('#addFav').addEventListener('click', () => {
+          addFavorite(document.querySelector('#addFav'), data);
+        })
 
-        closePopin(document.querySelector('#closeButton'));
+        document.querySelector('#closeButton').addEventListener('click', () => {
+          closePopin(document.querySelector('#closeButton'));
+        })
       };
 
-      // ADD FAVORITES
+      const closePopin = (button) => {
+        console.log(button);
+          button.parentElement.parentElement.parentElement.classList.add('close'); // remonte parents div>article>section
+          setTimeout( () => {
+            button.parentElement.parentElement.parentElement.classList.remove('open');
+            button.parentElement.parentElement.parentElement.classList.remove('close');
+          }, 300)
+      }
+
+    // ADD FAVORITES
 
       const addFavorite = (button, data) => {
-        button.addEventListener('click', () => {
 
           new FETCHrequest(
             apiUrl + '/favorite',
@@ -186,17 +204,21 @@
           .sendRequest()
           .then( jsonData => console.log(jsonData))
           .catch( jsonError => console.log(jsonError))
-        })
+          closePopin(button);
+          setTimeout(() =>{
+          userAccount();
+          }, 1000)
       };
 
-      const closePopin = (button) => {
-        button.addEventListener('click', () => {
-          button.parentElement.parentElement.parentElement.classList.add('close'); // remonte parents div>article>section
-          setTimeout( () => {
-            button.parentElement.parentElement.parentElement.classList.remove('open');
-            button.parentElement.parentElement.parentElement.classList.remove('close');
-          }, 300)
-        })
+      const displayFav = collection => {
+      console.log(collection.data.favorite);
+      favoritesUl.innerHTML = '';
+
+        for (let i=0; i < collection.data.favorite.length; i++){
+          favoritesUl.innerHTML += `
+              <li>${collection.data.favorite[i].title}</li>
+          `;
+        };
       }
 
 
@@ -206,7 +228,7 @@
     // Lancer IHM
 
     if(localStorage.getItem('token') !== null){
-      // Récupérer info user avec l'user_id
+      // Récupérer info user avec le token
       userAccount();
     }
     else{
@@ -220,7 +242,6 @@
     registerUser('#registerForm', '#registerForm [name="userEmail"]', '#registerForm [name="userPassword"]', '#registerForm [name="userPseudo"]');
 
     login('#loginForm', '#loginForm [name="loginEmail"]', '#loginForm [name="loginPassword"]');
-
   })
 
 
