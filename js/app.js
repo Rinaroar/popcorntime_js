@@ -53,8 +53,8 @@
         )
         .sendRequest()
         .then( jsonData => {
-          console.log(jsonData);
-          /* localStorage.setItem("token", jsonData.token) */
+          localStorage.setItem("token", jsonData.data.token);
+          console.log(jsonData.data.token);
         })
         .catch( jsonError => console.log(jsonError))
       })
