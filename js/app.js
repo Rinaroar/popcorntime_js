@@ -2,11 +2,10 @@
 
     // Register and login
     const apiUrl = 'https://kebabtv.dwsapp.io/api';
-    const mainNav = document.querySelector('header nav');
 
     // Search form
-    const searchForm = document.querySelector('header form');
-    const searchLabel = document.querySelector('header form span');
+    const searchForm = document.querySelector('section form');
+    const searchLabel = document.querySelector('section form span');
     const searchData = document.querySelector('[name="searchData"]'); // selecteur de balise HTML
 
     // Display movies
@@ -17,6 +16,21 @@
 
 
   // FONCTIONS
+
+    // NAVIGATION
+
+    const displaySearch = () => {
+      document.getElementById('displaySearchSection').classList.remove('hidden');
+      document.querySelector('.displayFavButton').classList.add('hidden');
+      document.querySelector('.displayFavButton').classList.remove('show');
+    };
+
+    const displayFavButton = () => {
+      document.querySelector('.displayFavButton').classList.remove('hidden');
+      document.getElementById('displaySearchSection').classList.add('hidden');
+      document.getElementById('displaySearchSection').classList.remove('show');
+    }
+
 
     // REGISTER AND LOGIN
 
@@ -76,6 +90,8 @@
           document.querySelector('#registerForm').classList.add('hidden');
           document.querySelector('#loginForm').classList.add('hidden');
           document.querySelector('#favoritesList').classList.add('show');
+          document.getElementById('show-search').classList.remove('hidden');
+          document.getElementById('show-myFav').classList.remove('hidden');
           displayFav(jsonData);
         })
         .catch( jsonError => console.log(jsonError))
@@ -86,7 +102,7 @@
 
     const getSearchSubmit = () => {
       searchForm.addEventListener('submit', (event) => { // fonction de callback
-        event.preventDefault(); // plus de soumission du form pour recuperer les données en js,
+        event.preventDefault();
 
         // Check the form data
         searchData.value.length > 1
@@ -224,6 +240,7 @@
             })
         };
       }
+      document.getElementById('displaySearchSection').classList.add('hidden');
     }
 
       const deleteFavorite = (movieId) => {
@@ -257,6 +274,10 @@
       // Afficher les formulaires
       document.querySelector('#registerForm').classList.remove('hidden');
       document.querySelector('#loginForm').classList.remove('hidden');
+      document.getElementById('displaySearchSection').classList.add('hidden');
+      document.querySelector('.displayFavButton').classList.add('hidden');
+      document.getElementById('show-search').classList.add('hidden');
+      document.getElementById('show-myFav').classList.add('hidden');
     }
 
     getSearchSubmit();

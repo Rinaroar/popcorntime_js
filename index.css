@@ -2,6 +2,7 @@ body{
   padding: 2rem;
 }
 
+
 .hidden{
   display: none;
 }
@@ -14,9 +15,19 @@ header{
   position: relative;
 }
 
-main{
-  margin-top: 15%;
+nav h1{
+  display: inline;
 }
+
+#show-search {
+  /* display: inline-block; */
+  margin-left: 60%;
+  margin-right: 20px;
+}
+
+/* #show-myFav {
+  display: inline-block;
+} */
 
 button {
   background-color: rgba(28, 46, 212);
@@ -43,42 +54,18 @@ button:hover {
   border:none;
 }
 
-.split {
-  /* height: 100%; */
-  width: 60%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.right {
-  right: 0;
-  background-color:black;
-  padding-left: 65px;
-}
-
 #searchData {
   width: 45%;
   margin: 5px 5px 0px 0px;
 }
 
 #registerForm, #loginForm{
-  width: 50%;
-  /* display: block;
+  width: 35%;
+  margin-right: auto;
   margin-left: auto;
-  margin-right: auto */
+  margin-top: 50px
 }
 
-/* figure:hover{
-  transform: rotateY(90deg);
-}
-
-figure:hover + div.overview{
-  transform: rotateY(0deg);
-}
-*/
 #movieList article {
   display: inline-block;
   position: relative;
@@ -91,16 +78,6 @@ figure {
   padding: 1rem;
   transition: all .3s linear;
 }
-
-/* .image {
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-
-figure:hover .image{
-  opacity: 0,3;
-} */
-
 
 .seeMore {
  font-style: italic;
@@ -130,13 +107,12 @@ article {
  max-width: 45%;
 }
 
-
 #moviePopin {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   background: rgba(32, 32, 32, 0.76);
   z-index: 0;
   display: flex;
@@ -179,6 +155,5 @@ article {
 footer{
   display: block;
   text-align: center;
-  width: 50%;
-  margin-top: 61%;
+  width: 100%;
 }

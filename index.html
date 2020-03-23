@@ -11,19 +11,22 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <header class="split left">
-    <div >
+  <header>
+    <nav>
       <h1 for="searchData"> Moveezz.tv</h1>
-      <form action="#">
-        <label>What do you wanna watch ?</label>
-        <input type="text" name="searchData" id="searchData" minlength="1" required placeholder="Search...">
-        <button type="submit">Search</button>
-      </form>
-    </div>
+      <button id="show-search"onclick="displaySearch()">Search</button>
+      <button id="show-myFav" onclick="displayFavButton()">My Fav'</button>
+    </nav>
+  </header>
 
-
-
-  <nav class="hidden"></nav>
+  <main>
+    <section id="displaySearchSection">
+        <form action="#">
+          <label>What do you wanna watch ?</label>
+          <input type="text" name="searchData" id="searchData" minlength="1" required placeholder="Search...">
+          <button type="submit">Search</button>
+        </form>
+      </section>
 
     <form action="#" id="registerForm">
         <h2>Create your profil</h2>
@@ -39,22 +42,21 @@
         <input type="text" name="loginPassword" required minlength="5" placeholder="Your password">
         <button type="submit">Login</button>
     </form>
-  </header>
 
-  <main>
-    <section id="favoritesList">
+
+    <section id="favoritesList" class="displayFavButton">
         <h2>My Favorites</h2>
         <ul id="favoritesUl"></ul>
     </section>
-    <section id="movieList" class="split right"></section>
-    <!-- <section id="moviePopin">
+    <section id="movieList"></section>
+    <section id="moviePopin">
       <article></article>
-    </section> -->
+    </section>
   </main>
 
-  <!-- <footer class="footer">
+  <footer class="footer">
     <p>Marina Luxin© 2020</p>
-  </footer> -->
+  </footer>
   <script src="js/app.js"></script>
   <script src="./js/fetch-class.js"></script>
 
