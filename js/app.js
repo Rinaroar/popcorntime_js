@@ -131,7 +131,7 @@
           <article>
             <figure>
               <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
-              <figcaption movie-id="${collection[i].id}">${collection[i].original_title}<span class="seeMore">(See more...)<span></figcaption>
+              <figcaption movie-id="${collection[i].id}">${collection[i].original_title}<span class="seeMore"> (See more...)<span></figcaption>
             </figure>
             <div class="overview">
               <div>
@@ -188,10 +188,9 @@
           }, 300)
       }
 
-    // ADD FAVORITES
+    // FAVORITES : ADD AND DELETE
 
       const addFavorite = (button, data) => {
-
           new FETCHrequest(
             apiUrl + '/favorite',
             'POST',
@@ -217,8 +216,31 @@
         for (let i=0; i < collection.data.favorite.length; i++){
           favoritesUl.innerHTML += `
               <li>${collection.data.favorite[i].title}</li>
+              <button movie-id="${collection.data.favorite[i]._id}" class="favButton"><i class="fas fa-trash"></i></button>
           `;
+          for (let button of document.querySelectorAll('.favButton')) {
+            button.addEventListener('click', () => {
+              deleteFavorite(button.getAttribute('movie-id'));
+            })
         };
+      }
+    }
+
+      const deleteFavorite = (movieId) => {
+        console.log(movieId);
+        new FETCHrequest(
+          apiUrl + '/favorite/' + movieId,
+          'DELETE',
+          {
+            token: localStorage.getItem('token')
+          }
+        )
+        .sendRequest()
+        .then( jsonData => console.log(jsonData))
+        .catch( jsonError => console.log(jsonError))
+        setTimeout(() =>{
+          userAccount();
+          }, 200)
       }
 
 
