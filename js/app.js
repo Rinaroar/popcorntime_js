@@ -1,4 +1,4 @@
-      // DECLARATIONS
+  // DECLARATIONS
 
     // Register and login
     const apiUrl = 'https://kebabtv.dwsapp.io/api';
@@ -18,6 +18,7 @@
   // FONCTIONS
   const displaySearch = () => {
     document.getElementById('displaySearchSection').classList.remove('hidden');
+    document.getElementById('movieList').classList.add('hidden');
     document.getElementById('favoritesList').classList.add('hidden');
   };
 
@@ -144,10 +145,18 @@
       movieList.innerHTML = '';
 
       for (let i = 0; i < collection.length; i++){
+        let imagePath = '';
+
+        if (collection[i].poster_path !== null) {
+          imagePath = 'https://image.tmdb.org/t/p/w500/' + collection[i].poster_path;
+        } else {
+          imagePath = './images/film.png';
+        }
+
         movieList.innerHTML += `
           <article>
             <figure>
-              <img src="https://image.tmdb.org/t/p/w500/${collection[i].poster_path}" alt="${collection[i].original_title}">
+              <img src="${imagePath}" alt="${collection[i].original_title}">
               <figcaption movie-id="${collection[i].id}">${collection[i].original_title}<span class="seeMore"> (See more...)<span></figcaption>
             </figure>
             <div class="overview">
@@ -157,10 +166,10 @@
             </div>
           </article>
         `;
-      };
-
-      getPopinLink(document.querySelectorAll('figcaption'));
-    };
+        };
+        getPopinLink(document.querySelectorAll('figcaption'));
+        document.getElementById('popcorn').classList.add('hidden');
+      }
 
       const getPopinLink = (linkCollection) => {
         for (let link of linkCollection) {

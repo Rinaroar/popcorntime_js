@@ -14,12 +14,14 @@
 <body>
   <header>
     <nav class="topnav">
-        <h1 for="searchData"> Moveezz.tv</h1>
-        <div id="welcome"></div>
-        <section id="button-nav" class="hidden">
-          <button id="show-search"onclick="displaySearch()">Search</button>
-          <button id="show-myFav" onclick="displayFavButton()">My Fav'</i></button>
-        </section>
+      <div class="rounded">
+        <h1 for="searchData"> Your Moveezz</h1>
+      </div>
+      <div id="welcome"></div>
+      <section id="button-nav" class="hidden">
+        <button id="show-search"onclick="displaySearch()">Search</button>
+        <button id="show-myFav" onclick="displayFavButton()">My Fav'</i></button>
+      </section>
     </nav>
   </header>
 
@@ -34,7 +36,7 @@
       </form>
 
       <form action="#" id="loginForm">
-          <h3>Or login to <span class="logo"><strong>Moveezz</strong><b>.tv</b></span></h3>
+          <h3>Or login to <span class="logo"><strong>Your Moveezz</strong></span></h3>
           <input type="text" name="loginEmail" required minlength="5" placeholder="Your email">
           <input type="text" name="loginPassword" required minlength="5" placeholder="Your password">
           <button type="submit">Login</button>
@@ -48,6 +50,7 @@
         <i class="fa fa-search"></i>
       </button>
     </form>
+    <img src="./images/popcorn.png" alt="pop" id="popcorn">
     <section id="movieList"></section>
 
     <section id="moviePopin" class="popin-hidden">

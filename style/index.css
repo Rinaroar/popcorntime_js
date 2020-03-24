@@ -12,21 +12,25 @@ body{
 
 header{
   position: relative;
+  min-height: 10vh;
+}
+
+main {
+  min-height: 79vh;
 }
 
 button {
-  background-color: rgba(28, 46, 212);
+  background-color:  #3C66B1;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background-color:rgb(79, 89, 179) ;
+  background-color:#52A2E7 ;
   color: white;
   border:none;
 }
-
 
 .topnav{
   width: 100%;
@@ -35,7 +39,22 @@ button:hover {
 }
 
 h1 {
-  color: rgba(28, 46, 212);
+  color: white;
+    margin-bottom: 0;
+    padding: 5px 30px;
+    font-size: 30px;
+    height: 50px;
+}
+.rounded{
+  background-color: #FF6243;
+  border-radius: 50px 20px;
+}
+
+#welcome {
+  position: absolute;
+  left: 41%;
+  top: 17%;
+  color: #3C66B1;
 }
 
 #button-nav {
@@ -59,8 +78,12 @@ h1 {
 
 #searchData{
   height: 50px;
-  border: solid 2px rgba(28, 46, 212);
+  border: solid 2px #3C66B1;
   border-radius: 5px 0px 0px 5px;
+}
+::placeholder {
+  color: #52A2E7;
+  font-style: italic;
 }
 .search {
   height: 50px;
@@ -72,7 +95,11 @@ h1 {
 #displaySearchSection{
   width: 100%;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
+}
+
+#popcorn {
+  margin: 10px;
 }
 
 #closeButton {
