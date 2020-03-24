@@ -1,11 +1,11 @@
-  // DECLARATIONS
+      // DECLARATIONS
 
     // Register and login
     const apiUrl = 'https://kebabtv.dwsapp.io/api';
 
     // Search form
-    const searchForm = document.querySelector('section form');
-    const searchLabel = document.querySelector('section form span');
+    const searchForm = document.querySelector('form');
+   //const searchLabel = document.querySelector('form span');
     const searchData = document.querySelector('[name="searchData"]'); // selecteur de balise HTML
 
     // Display movies
@@ -16,21 +16,16 @@
 
 
   // FONCTIONS
+  const displaySearch = () => {
+    document.getElementById('displaySearchSection').classList.remove('hidden');
+    document.getElementById('favoritesList').classList.add('hidden');
+  };
 
-    // NAVIGATION
-
-    const displaySearch = () => {
-      document.getElementById('displaySearchSection').classList.remove('hidden');
-      document.querySelector('.displayFavButton').classList.add('hidden');
-      document.querySelector('.displayFavButton').classList.remove('show');
-    };
-
-    const displayFavButton = () => {
-      document.querySelector('.displayFavButton').classList.remove('hidden');
-      document.getElementById('displaySearchSection').classList.add('hidden');
-      document.getElementById('displaySearchSection').classList.remove('show');
-    }
-
+  const displayFavButton = () => {
+    document.getElementById('favoritesList').classList.remove('hidden');
+    document.getElementById('displaySearchSection').classList.add('hidden');
+    userAccount();
+  }
 
     // REGISTER AND LOGIN
 
@@ -70,8 +65,8 @@
         .sendRequest()
         .then( jsonData => {
           localStorage.setItem("token", jsonData.data.token);
-          console.log(jsonData.data.token);
           // Récupère les informations user
+          Welcome(jsonData);
           userAccount();
         })
         .catch( jsonError => console.log(jsonError))
@@ -86,22 +81,28 @@
         )
         .sendRequest()
         .then( jsonData => {
+          console.log(jsonData);
           // Masquer les formulaires
-          document.querySelector('#registerForm').classList.add('hidden');
-          document.querySelector('#loginForm').classList.add('hidden');
-          document.querySelector('#favoritesList').classList.add('show');
-          document.getElementById('show-search').classList.remove('hidden');
-          document.getElementById('show-myFav').classList.remove('hidden');
-          displayFav(jsonData);
+          document.getElementById('formConnexion').classList.add('hidden');
+          document.getElementById('button-nav').classList.remove('hidden');
+          document.getElementById('displaySearchSection').classList.remove('hidden');
+          if(document.getElementById('favoritesList').className != 'hidden') {
+            displayFav(jsonData);
+          }
         })
         .catch( jsonError => console.log(jsonError))
     };
 
+    const Welcome = (userData) => {
+      welcome.innerHTML += `
+      <h2>Welcome ${userData.data.user.pseudo}</h2>
+      `;
+    }
 
     // SEARCH MOVIES
 
     const getSearchSubmit = () => {
-      searchForm.addEventListener('submit', (event) => { // fonction de callback
+      document.getElementById('displaySearchSection').addEventListener('submit', (event) => { // fonction de callback
         event.preventDefault();
 
         // Check the form data
@@ -171,7 +172,6 @@
       };
 
       const displayPopin = (data) => {
-        console.log(data);
         moviePopin.innerHTML = `
           <div>
             <img src="https://image.tmdb.org/t/p/w500/${data.poster_path}" alt="${data.original_title}">
@@ -196,7 +196,6 @@
       };
 
       const closePopin = (button) => {
-        console.log(button);
           button.parentElement.parentElement.parentElement.classList.add('close'); // remonte parents div>article>section
           setTimeout( () => {
             button.parentElement.parentElement.parentElement.classList.remove('open');
@@ -220,14 +219,10 @@
           .then( jsonData => console.log(jsonData))
           .catch( jsonError => console.log(jsonError))
           closePopin(button);
-          setTimeout(() =>{
-          userAccount();
-          }, 1000)
       };
 
       const displayFav = collection => {
-      console.log(collection.data.favorite);
-      favoritesUl.innerHTML = '';
+       favoritesUl.innerHTML = '';
 
         for (let i=0; i < collection.data.favorite.length; i++){
           favoritesUl.innerHTML += `
@@ -244,7 +239,6 @@
     }
 
       const deleteFavorite = (movieId) => {
-        console.log(movieId);
         new FETCHrequest(
           apiUrl + '/favorite/' + movieId,
           'DELETE',
@@ -257,9 +251,8 @@
         .catch( jsonError => console.log(jsonError))
         setTimeout(() =>{
           userAccount();
-          }, 200)
+          }, 500)
       }
-
 
     // Attendre le chargement du DOM
     document.addEventListener('DOMContentLoaded', () => {
@@ -274,10 +267,6 @@
       // Afficher les formulaires
       document.querySelector('#registerForm').classList.remove('hidden');
       document.querySelector('#loginForm').classList.remove('hidden');
-      document.getElementById('displaySearchSection').classList.add('hidden');
-      document.querySelector('.displayFavButton').classList.add('hidden');
-      document.getElementById('show-search').classList.add('hidden');
-      document.getElementById('show-myFav').classList.add('hidden');
     }
 
     getSearchSubmit();

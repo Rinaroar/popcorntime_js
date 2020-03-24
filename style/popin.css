@@ -1,0 +1,40 @@
+#moviePopin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(32, 32, 32, 0.76);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+#moviePopin.open{
+  opacity: 1;
+  z-index: 1000;
+}
+
+#moviePopin.open.close{
+  opacity: 0;
+}
+
+#moviePopin article {
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  background: white;
+  padding: 2rem;
+}
+
+#moviePopin article div{
+  width: calc( 50% - 1rem );
+}
+
+.popin-hidden {
+    display: none;
+    z-index: -9999;
+}
