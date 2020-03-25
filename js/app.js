@@ -12,6 +12,9 @@
   const movieList = document.querySelector('#movieList');
   const moviePopin = document.querySelector('#moviePopin article');
 
+  //Display Favorite Added Popin
+  const favoritePopin = document.querySelector('#favoritePopin article')
+
   const registerButton = document.getElementById('registerButton');
   const loginButton = document.getElementById('loginButton');
 
@@ -20,6 +23,7 @@
   // Dynamics diplays
   const displaySearch = () => {
     document.getElementById('displaySearchSection').classList.remove('hidden');
+    document.getElementById('popcorn').classList.remove('hidden');
     document.getElementById('movieList').classList.add('hidden');
     document.getElementById('favoritesList').classList.add('hidden');
   };
@@ -237,11 +241,7 @@
   };
 
   const closePopin = (button) => {
-      button.parentElement.parentElement.parentElement.classList.add('close'); // remonte parents div>article>section
-      setTimeout( () => {
-        button.parentElement.parentElement.parentElement.classList.remove('open');
-        button.parentElement.parentElement.parentElement.classList.remove('close');
-      }, 300)
+      button.parentElement.parentElement.parentElement.classList.remove('open');
   };
 
   // FAVORITES : ADD AND DELETE
@@ -256,26 +256,22 @@
         }
       )
       .sendRequest()
-      .then( jsonData => {
-        favAdded(jsonData);
-        setTimeout(() => {
-          favoriteAdded.classList.add('hidden');
-          }, 1200)
-      })
+      .then( jsonData => favAdded(jsonData))
       .catch( jsonError => console.log(jsonError))
       closePopin(button);
   };
 
   const favAdded = (userData) => {
-    favoriteAdded.innerHTML += `
-    <div>
-      <div>
+    favoritePopin.innerHTML = `
         <img src="./images/tick.png"/>
-        <p> You've just added <span>${userData.data.data.title}</span> to your favorite</p>
-      <div>
-    </div>
+        <p>You've just added <span>${userData.data.data.title}</span> to your favorite</p>
     `;
-    favoriteAdded.classList.add('open');
+    setTimeout(() => {
+      favoritePopin.parentElement.classList.add('open');
+    }, 600)
+    setTimeout(() => {
+      favoritePopin.parentElement.classList.remove('open');
+      }, 2500)
   };
 
   const displayFav = collection => {
