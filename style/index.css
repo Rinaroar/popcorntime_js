@@ -46,6 +46,12 @@ h1 {
     font-size: 30px;
     height: 50px;
 }
+
+h2 {
+  font-size: 2.6rem;
+  line-height: 1.6em;
+}
+
 .rounded{
   background-color: #FF6243;
   border-radius: 50px 20px;
@@ -121,32 +127,84 @@ h1 {
 }
 
 #formConnexion {
-    background-color: white;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
+  background-color:white;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #registerButton {
   position: relative;
   top: 16px;
   left: 28%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1.3em;
 }
 
 #loginButton {
+  padding: 0;
   position: relative;
   top: 16px;
-  left: 42%;
+  left: 47%;
+  background-color: transparent;
+  font-size: 1.3em;
 }
 
-#registerForm, #loginForm{
+#registerForm {
   width: 45%;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 50px
+}
+
+#registerForm button {
+  width: 100%;
+}
+
+#loginForm {
+  width: 45%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 37px;
+}
+
+#loginForm button {
+  width: 100%;
+}
+
+#registerAdded {
+  width: 48%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 74px;
+}
+
+#registerAdded img {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 30px;
+}
+
+#registerAdded p {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 29px;
+}
+
+#registerAdded span {
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+#movieList article {
   display: inline-block;
+  position: relative;
 }
 
 #movieList article {

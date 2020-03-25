@@ -13,7 +13,8 @@
     const movieList = document.querySelector('#movieList');
     const moviePopin = document.querySelector('#moviePopin article');
 
-
+    const registerButton = document.getElementById('registerButton');
+    const loginButton = document.getElementById('loginButton');
 
   // FONCTIONS
 
@@ -32,11 +33,27 @@
   const displayRegisterForm = () => {
     document.getElementById('registerForm').classList.remove('hidden');
     document.getElementById('loginForm').classList.add('hidden');
+    //document.getElementById('registerAdded').classList.add('hidden');
+
+    loginButton.style.borderBottom='none';
+    loginButton.style.color='rgb(161, 161, 161)';
+
+    registerButton.style.borderBottom='solid';
+    registerButton.style.color='#3C66B1'
+
   }
 
   const displayLoginForm = () => {
     document.getElementById('registerForm').classList.add('hidden');
     document.getElementById('loginForm').classList.remove('hidden');
+    document.getElementById('registerAdded').classList.remove('show');
+    document.getElementById('registerAdded').classList.add('hidden');
+
+    loginButton.style.color='#3C66B1'
+    loginButton.style.borderBottom='solid';
+
+    registerButton.style.borderBottom='none';
+    registerButton.style.color='rgb(161, 161, 161)';
   }
 
     // REGISTER AND LOGIN
@@ -63,8 +80,11 @@
 
     const userRegistered = () => {
       registerAdded.innerHTML += `
-      <p> You've been well Registered</p>
+      <img src="./images/tick.png"/>
+      <p> You've been well registered.<br/><span>Please log you in to access your session</span></p>
       `;
+      document.getElementById('registerForm').classList.add('hidden');
+      document.getElementById('registerAdded').classList.add('show');
     }
 
     const login = (formTag, emailTag, passwordTag) => {
@@ -275,7 +295,7 @@
         .sendRequest()
         .then( jsonData => console.log(jsonData))
         .catch( jsonError => console.log(jsonError))
-        setTimeout(() =>{
+        setTimeout(() => {
           userAccount();
           }, 500)
       }
