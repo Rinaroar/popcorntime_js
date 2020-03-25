@@ -16,6 +16,7 @@
 
 
   // FONCTIONS
+
   const displaySearch = () => {
     document.getElementById('displaySearchSection').classList.remove('hidden');
     document.getElementById('movieList').classList.add('hidden');
@@ -26,6 +27,16 @@
     document.getElementById('favoritesList').classList.remove('hidden');
     document.getElementById('displaySearchSection').classList.add('hidden');
     userAccount();
+  }
+
+  const displayRegisterForm = () => {
+    document.getElementById('registerForm').classList.remove('hidden');
+    document.getElementById('loginForm').classList.add('hidden');
+  }
+
+  const displayLoginForm = () => {
+    document.getElementById('registerForm').classList.add('hidden');
+    document.getElementById('loginForm').classList.remove('hidden');
   }
 
     // REGISTER AND LOGIN
@@ -276,6 +287,7 @@
       // Afficher les formulaires
       document.querySelector('#registerForm').classList.remove('hidden');
       document.querySelector('#loginForm').classList.remove('hidden');
+      displayLoginForm();
     }
 
     getSearchSubmit();

@@ -27,7 +27,9 @@
 
   <main>
   <section id="formConnexion">
-      <form action="#" id="registerForm">
+    <button id="registerButton" onclick="displayRegisterForm()">Register</button>
+    <button id="loginButton" onclick="displayLoginForm()">Login</button>
+      <form action="#" id="registerForm" class="hidden">
           <h2>Create your profil</h2>
           <input type="text" name="userEmail" required minlength="5" placeholder="Your email">
           <input type="text" name="userPassword" required minlength="5" placeholder="Your password">
@@ -35,7 +37,7 @@
           <button type="submit">Register</button>
       </form>
 
-      <form action="#" id="loginForm">
+      <form action="#" id="loginForm" class="hidden">
           <h3>Or login to <span class="logo"><strong>Your Moveezz</strong></span></h3>
           <input type="text" name="loginEmail" required minlength="5" placeholder="Your email">
           <input type="text" name="loginPassword" required minlength="5" placeholder="Your password">

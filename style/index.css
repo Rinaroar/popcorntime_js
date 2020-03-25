@@ -1,5 +1,6 @@
 body{
   padding: 2rem;
+  background-color: #eee;
 }
 
 .hidden{
@@ -119,11 +120,33 @@ h1 {
   margin: 5px 5px 0px 0px;
 }
 
+#formConnexion {
+    background-color: white;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#registerButton {
+  position: relative;
+  top: 16px;
+  left: 28%;
+  margin-bottom: 30px;
+}
+
+#loginButton {
+  position: relative;
+  top: 16px;
+  left: 42%;
+}
+
 #registerForm, #loginForm{
-  width: 35%;
+  width: 45%;
   margin-right: auto;
   margin-left: auto;
   margin-top: 50px
+  display: inline-block;
 }
 
 #movieList article {
@@ -168,7 +191,11 @@ article {
 }
 
 footer{
-  display: block;
   text-align: center;
   width: 100%;
 }
+
+footer p {
+  margin: 0;
+}
+
