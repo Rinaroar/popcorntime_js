@@ -91,7 +91,7 @@ h2 {
   background-color: white;
 }
 ::placeholder {
-  color: #3C66B1;
+  color: grey;
   font-style: italic;
   font-size: 1.1em;
 }
@@ -108,7 +108,7 @@ h2 {
 .search {
   height: 50px;
   margin-left: -18px;
-  padding-top: 5px;
+  padding-top: 4px;
   background-color: white;
 }
 
@@ -214,10 +214,8 @@ h2 {
   font-size: 1.8rem;
   font-style: italic;
 }
-
-#movieList article {
-  display: inline-block;
-  position: relative;
+#movieList{
+  columns: 4;
 }
 
 #movieList article {
@@ -257,9 +255,9 @@ figure {
   width: 50%;
 }
 
-article {
+/* article {
  max-width: 33%;
-}
+} */
 
 #favoritesList ul {
   list-style: none;

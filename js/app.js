@@ -119,7 +119,6 @@
         )
         .sendRequest()
         .then( jsonData => {
-          console.log(jsonData);
           // Masquer les formulaires
           document.getElementById('formConnexion').classList.add('hidden');
           document.getElementById('button-nav').classList.remove('hidden');
@@ -142,6 +141,7 @@
     const getSearchSubmit = () => {
       document.getElementById('displaySearchSection').addEventListener('submit', (event) => { // fonction de callback
         event.preventDefault();
+        document.getElementById('movieList').classList.remove('hidden');
 
         // Check the form data
         searchData.value.length > 1
@@ -262,10 +262,28 @@
             }
           )
           .sendRequest()
-          .then( jsonData => console.log(jsonData))
+          .then( jsonData => {
+            favAdded(jsonData);
+            setTimeout(() => {
+              favoriteAdded.classList.add('hidden');
+              }, 1200)
+            })
+
           .catch( jsonError => console.log(jsonError))
           closePopin(button);
       };
+
+      const favAdded = (userData) => {
+        favoriteAdded.innerHTML += `
+        <div>
+          <div>
+            <img src="./images/tick.png"/>
+            <p> You've just added <span>${userData.data.data.title}</span> to your favorite</p>
+          <div>
+        </div>
+        `;
+        favoriteAdded.classList.add('open');
+      }
 
       const displayFav = collection => {
        favoritesUl.innerHTML = '';
@@ -276,9 +294,9 @@
                 <li>${collection.data.favorite[i].title}
                 <button movie-id="${collection.data.favorite[i]._id}" class="favButton"><i class="fas fa-trash"></i></button>
                 </li>
-
               </div>
           `;
+
           for (let button of document.querySelectorAll('.favButton')) {
             button.addEventListener('click', () => {
               deleteFavorite(button.getAttribute('movie-id'));
