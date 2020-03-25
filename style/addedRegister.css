@@ -1,0 +1,25 @@
+#registerAdded {
+  width: 48%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 74px;
+}
+
+#registerAdded img {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 30px;
+}
+
+#registerAdded p {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 29px;
+}
+
+#registerAdded span {
+  font-size: 1.8rem;
+  font-style: italic;
+}

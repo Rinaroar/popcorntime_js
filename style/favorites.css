@@ -1,0 +1,49 @@
+
+#favoritesList ul {
+  list-style: none;
+  /* columns: 2; */
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+}
+
+#favoritesList h2 {
+  text-align: center;
+  font-size: 4.6rem;
+  margin: 20px 0 20px 0;
+}
+
+#favoritesList ul div li {
+  display: block;
+  position: relative;
+  border-radius: 0.6em;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 25px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color:  #3C66B1;
+}
+
+.favButton {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 5px 30px;
+  transform: translate(0%, -50%);
+  background-color: transparent;
+}
+
+.favButton:hover{
+  background-color: transparent;
+}
+
+.fa-trash {
+  color: #3C66B1;
+  font-size: 24px;
+}
+.fa-trash:hover {
+  color: #52A2E7;
+  font-size: 26px;
+}

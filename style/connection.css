@@ -1,0 +1,49 @@
+#formConnexion {
+  background-color:white;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#registerButton {
+  position: relative;
+  top: 16px;
+  left: 28%;
+  margin-bottom: 40px;
+  padding: 0;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+#loginButton {
+  padding: 0;
+  position: relative;
+  top: 16px;
+  left: 47%;
+  background-color: transparent;
+  font-size: 1.3em;
+}
+
+#registerForm {
+  width: 45%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#registerForm button {
+  width: 100%;
+}
+
+#loginForm {
+  width: 45%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 37px;
+}
+
+#loginForm button {
+  width: 100%;
+}

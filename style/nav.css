@@ -1,0 +1,49 @@
+
+.topnav{
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.rounded{
+  background-color: #FF6243;
+  border-radius: 50px 20px;
+}
+
+#welcome {
+  position: absolute;
+  left: 41%;
+  top: 17%;
+  color: #3C66B1;
+}
+
+#button-nav {
+  position: absolute;
+  right: 3%;
+  top: 17%;
+}
+
+#show-search {
+  height: 50px;
+  width: 140px;
+  font-size: 12px;
+}
+
+#show-myFav {
+  margin-left: 10px;
+  height: 50px;
+  width: 140px;
+  font-size: 12px;
+}
+
+#closeButton {
+  background-color:#3C66B1 ;
+  color: white;
+  border:none;
+}
+
+#closeButton:hover {
+  background-color: rgb(54, 54, 54) ;
+  color: white;
+  border:none;
+}
