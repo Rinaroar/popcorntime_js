@@ -84,19 +84,37 @@ h2 {
 }
 
 #searchData{
+  width: 40%;
+  margin: 5px 5px 0px 0px;
   height: 50px;
-  border: solid 2px #3C66B1;
-  border-radius: 5px 0px 0px 5px;
+  border: none;
+  background-color: white;
 }
 ::placeholder {
-  color: #52A2E7;
+  color: #3C66B1;
   font-style: italic;
+  font-size: 1.1em;
 }
+
+.fa-search {
+  font-size: 18px;
+  color: #3C66B1;
+}
+
+.fa-search:hover {
+  color: white;
+}
+
 .search {
   height: 50px;
   margin-left: -18px;
   padding-top: 5px;
-  border-radius: 0px 5px 5px 0px;
+  background-color: white;
+}
+
+.search:hover{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 #displaySearchSection{
@@ -110,7 +128,7 @@ h2 {
 }
 
 #closeButton {
-  background-color:rgba(28, 46, 212) ;
+  background-color:#3C66B1 ;
   color: white;
   border:none;
 }
@@ -119,11 +137,6 @@ h2 {
   background-color: rgb(54, 54, 54) ;
   color: white;
   border:none;
-}
-
-#searchData {
-  width: 45%;
-  margin: 5px 5px 0px 0px;
 }
 
 #formConnexion {
@@ -246,6 +259,54 @@ figure {
 
 article {
  max-width: 33%;
+}
+
+#favoritesList ul {
+  list-style: none;
+  /* columns: 2; */
+  margin-right: auto;
+  margin-left: auto;
+  width: 40%;
+}
+
+#favoritesList h2 {
+  text-align: center;
+  font-size: 4.6rem;
+  margin: 20px 0 20px 0;
+}
+
+#favoritesList ul div li {
+  display: block;
+  position: relative;
+  border-radius: 0.6em;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 25px;
+  font-size: 1.2em;
+  color:  #3C66B1;
+}
+
+.favButton {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  padding: 5px 30px;
+  transform: translate(0%, -50%);
+  background-color: transparent;
+}
+
+.favButton:hover{
+  background-color: transparent;
+}
+
+.fa-trash {
+  color: #3C66B1;
+  font-size: 24px;
+}
+.fa-trash:hover {
+  color: #52A2E7;
+  font-size: 26px;
 }
 
 footer{

@@ -272,8 +272,12 @@
 
         for (let i=0; i < collection.data.favorite.length; i++){
           favoritesUl.innerHTML += `
-              <li>${collection.data.favorite[i].title}</li>
-              <button movie-id="${collection.data.favorite[i]._id}" class="favButton"><i class="fas fa-trash"></i></button>
+              <div>
+                <li>${collection.data.favorite[i].title}
+                <button movie-id="${collection.data.favorite[i]._id}" class="favButton"><i class="fas fa-trash"></i></button>
+                </li>
+
+              </div>
           `;
           for (let button of document.querySelectorAll('.favButton')) {
             button.addEventListener('click', () => {
