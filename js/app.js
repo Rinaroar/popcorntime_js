@@ -56,10 +56,16 @@
           }
         )
         .sendRequest()
-        .then( jsonData => console.log(jsonData))
+        .then( userRegistered() )
         .catch( jsonError => console.log(jsonError))
       })
     };
+
+    const userRegistered = () => {
+      registerAdded.innerHTML += `
+      <p> You've been well Registered</p>
+      `;
+    }
 
     const login = (formTag, emailTag, passwordTag) => {
       // capter le formulaire
