@@ -26,11 +26,12 @@ button:hover {
 }
 
 h1 {
-  color: white;
-    margin-bottom: 0;
-    padding: 5px 30px;
-    font-size: 30px;
-    height: 50px;
+  color:#FF6243;
+  margin-bottom: 0;
+  padding: 5px 30px;
+  font-size: 30px;
+  font-weight: 600;
+  height: 50px;
 }
 
 h2 {

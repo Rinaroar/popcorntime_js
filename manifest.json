@@ -7,8 +7,8 @@
   "scope": "/",
   "start_url": "/?homescreen=1",
   "display": "standalone",
-  "theme_color": "#999999",
-  "background_color": "#ffffff",
+  "theme_color": "#3C66B1",
+  "background_color": "#eee",
   "description": "Create your favorites Movie List",
   "icons": [
       {

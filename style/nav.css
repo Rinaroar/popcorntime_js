@@ -5,11 +5,6 @@
   display: flex;
 }
 
-.rounded{
-  background-color: #FF6243;
-  border-radius: 50px 20px;
-}
-
 #welcome {
   position: absolute;
   left: 41%;
