@@ -1,7 +1,7 @@
 {
   "lang": "fr",
   "name": "Your Moveezz",
-  "short_name": "Mooveezz",
+  "short_name": "Moveezz",
   "dir": "ltr",
   "orientation": "portrait",
   "scope": "/",
@@ -9,7 +9,7 @@
   "display": "standalone",
   "theme_color": "#3C66B1",
   "background_color": "#eee",
-  "description": "Create your favorites Movie List",
+  "description": "Choose movies you want to add to your favorites",
   "icons": [
       {
         "src": "./images/icons/icon-72x72.png",

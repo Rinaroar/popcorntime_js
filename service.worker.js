@@ -28,7 +28,6 @@ const staticAssets = [
  //
 
 
-
  /*
  Gestion des événements
  */
