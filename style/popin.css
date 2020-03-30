@@ -109,8 +109,27 @@
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px){}
-@media (min-width: 600px) and (max-width: 769px){}
+@media (min-width: 768px) and (max-width: 1024px){
+
+  #moviePopin article {
+    width: 63%;
+    padding: 1rem;
+  }
+
+  #closeButton {
+    width: 40%;
+    padding: 1px;
+    font-size: 1rem;
+    margin-left: 4px;
+  }
+
+  #addFav {
+    width: 55%;
+    padding: 1px;
+    font-size: 1rem;
+  }
+}
+
 @media (min-width: 480px) and (max-width: 601px){}
 
 @media (min-width: 320px) and (max-width: 480px){
@@ -124,14 +143,14 @@
   }
 
   #closeButton {
-    width: 45%;
+    width: 40%;
     padding: 1px;
     font-size: 0.8rem;
     margin-left: 6px;
   }
 
   #addFav {
-    width: 45%;
+    width: 50%;
     padding: 1px;
     font-size: 0.8rem;
   }

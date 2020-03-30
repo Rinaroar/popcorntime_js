@@ -23,3 +23,14 @@
   font-size: 1.8rem;
   font-style: italic;
 }
+
+
+@media (min-width: 320px) and (max-width: 480px){
+  #registerAdded {
+    width: 90%;
+  }
+
+  #registerAdded img {
+    width: 15%;
+  }
+}
