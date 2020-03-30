@@ -32,7 +32,10 @@ h1 {
   font-size: 30px;
   font-weight: 600;
   height: 50px;
+
+  /*     padding: 10px 5px; pour 480px */
 }
+
 
 h2 {
   font-size: 2.6rem;

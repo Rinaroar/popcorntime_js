@@ -1,44 +1,216 @@
+@media (min-width: 1281px){
 
-.topnav{
-  width: 100%;
-  position: relative;
-  display: flex;
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 3%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 50px;
+    width: 140px;
+    font-size: 12px;
+  }
+
+  #show-myFav {
+    margin-left: 10px;
+    height: 50px;
+    width: 140px;
+    font-size: 12px;
+  }
 }
 
-#welcome {
-  position: absolute;
-  left: 41%;
-  top: 17%;
-  color: #3C66B1;
+@media (min-width: 1025px) and (max-width: 1280px){
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 3%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 45px;
+    width: 140px;
+    font-size: 12px;
+  }
+
+  #show-myFav {
+    margin-left: 10px;
+    height: 45px;
+    width: 140px;
+    font-size: 12px;
+  }
 }
 
-#button-nav {
-  position: absolute;
-  right: 3%;
-  top: 17%;
+@media (min-width: 768px) and (max-width: 1024px){
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 3%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 45px;
+    width: 140px;
+    font-size: 12px;
+  }
+
+  #show-myFav {
+    margin-left: 10px;
+    height: 45px;
+    width: 140px;
+    font-size: 12px;
+  }
 }
 
-#show-search {
-  height: 50px;
-  width: 140px;
-  font-size: 12px;
+@media (min-width: 600px) and (max-width: 769px){
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 3%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 40px;
+    width: 130px;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  #show-myFav {
+    margin-left: 10px;
+    height: 40px;
+    width: 130px;
+    font-size: 12px;
+    padding: 0;
+  }
 }
 
-#show-myFav {
-  margin-left: 10px;
-  height: 50px;
-  width: 140px;
-  font-size: 12px;
+@media (min-width: 480px) and (max-width: 601px){
+
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 3%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 38px;
+    width: 100px;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  #show-myFav {
+    margin-left: 10px;
+    height: 38px;
+    width: 100px;
+    font-size: 12px;
+    padding: 0;
+  }
 }
 
-#closeButton {
-  background-color:#3C66B1 ;
-  color: white;
-  border:none;
+@media (min-width: 320px) and (max-width: 480px){
+  .topnav{
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  .icon {
+    display: none;
+  }
+
+  #welcome {
+    position: absolute;
+    left: 41%;
+    top: 17%;
+    color: #3C66B1;
+  }
+
+  #button-nav {
+    position: absolute;
+    right: 0%;
+    top: 17%;
+  }
+
+  #show-search {
+    height: 37px;
+    width: 90px;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  #show-myFav {
+    margin-left: 1px;
+    height: 37px;
+    width: 90px;
+    font-size: 12px;
+    padding: 0;
+  }
 }
 
-#closeButton:hover {
-  background-color: rgb(54, 54, 54) ;
-  color: white;
-  border:none;
-}

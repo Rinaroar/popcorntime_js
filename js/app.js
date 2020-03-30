@@ -21,6 +21,15 @@
   // FONCTIONS
 
   // Dynamics diplays
+  function myFunction() {
+    var x = document.getElementById("button-nav");
+    if (x.className === "button-nav") {
+      x.className += " responsive";
+    } else {
+      x.className = "button-nav";
+    }
+  }
+
   const displaySearch = () => {
     document.getElementById('displaySearchSection').classList.remove('hidden');
     document.getElementById('popcorn').classList.remove('hidden');
