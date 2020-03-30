@@ -40,17 +40,24 @@ figure {
   width: 50%;
 }
 
-#closeButton {
-  background-color:#3C66B1 ;
-  color: white;
-  border:none;
-}
-
-#closeButton:hover {
-  background-color: rgb(54, 54, 54) ;
-  color: white;
-  border:none;
-
 /* article {
  max-width: 33%;
 } */
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+  #movieList{
+    columns: 3;
+  }
+}
+@media (min-width: 600px) and (max-width: 769px){
+  #movieList{
+    columns: 2;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #movieList{
+    columns: 1;
+  }
+}

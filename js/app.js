@@ -228,7 +228,7 @@
       <div>
         <h2>${data.original_title}</h2>
         <p>${data.overview}</p>
-        <button id="addFav">Add in Favorites</button>
+        <button id="addFav">Add in Fav'</button>
         <button id="closeButton">Close</button>
       </div>
     `;

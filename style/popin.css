@@ -20,6 +20,18 @@
   opacity: 0;
 }
 
+#closeButton {
+  background-color:#3C66B1 ;
+  color: white;
+  border:none;
+}
+
+#closeButton:hover {
+  background-color: rgb(54, 54, 54) ;
+  color: white;
+  border:none;
+}
+
 #moviePopin article {
   position: relative;
   margin: auto;
@@ -41,7 +53,7 @@
 
 
 
-
+/* Add in Favorites */
 #favoritePopin {
   position: fixed;
   top: 0;
@@ -96,6 +108,51 @@
     z-index: -9999;
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px){}
+@media (min-width: 600px) and (max-width: 769px){}
+@media (min-width: 480px) and (max-width: 601px){}
+
+@media (min-width: 320px) and (max-width: 480px){
+  #moviePopin article {
+    width: auto;
+    padding: 1rem;
+  }
+
+  #moviePopin p {
+    font-size: 1.1rem;
+  }
+
+  #closeButton {
+    width: 45%;
+    padding: 1px;
+    font-size: 0.8rem;
+    margin-left: 6px;
+  }
+
+  #addFav {
+    width: 45%;
+    padding: 1px;
+    font-size: 0.8rem;
+  }
+
+  #favoritePopin article {
+    width: 80%;
+    background: white;
+    padding: 1rem;
+    text-align: left;
+  }
+
+  #favoritePopin img {
+    width: 30%;
+  }
+
+  #favoritePopin p {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 29px;
+  }
+}
 
 
 
