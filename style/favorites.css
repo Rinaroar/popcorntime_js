@@ -50,12 +50,12 @@
 
 @media (min-width: 768px) and (max-width: 1024px){
   #favoritesList ul {
-    width: 45%;
+    width: 55%;
   }
 }
 @media (min-width: 600px) and (max-width: 769px){
   #favoritesList ul {
-    width: 55%;
+    width: 60%;
   }
 }
 
