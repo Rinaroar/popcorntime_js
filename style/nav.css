@@ -181,10 +181,6 @@
     display: flex;
   }
 
-  .icon {
-    display: none;
-  }
-
   #welcome {
     position: absolute;
     left: 41%;
@@ -199,18 +195,21 @@
   }
 
   #show-search {
-    height: 37px;
+    height: 35px;
     width: 90px;
     font-size: 12px;
     padding: 0;
   }
 
   #show-myFav {
-    margin-left: 1px;
-    height: 37px;
+    margin-left: 8px;
+    height: 35px;
     width: 90px;
     font-size: 12px;
     padding: 0;
   }
-}
 
+  .your{
+    display: none;
+  }
+}
