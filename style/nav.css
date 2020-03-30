@@ -47,6 +47,11 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px){
+
+  #welcome {
+    left: 36%;
+  }
+
   #show-search {
     height: 45px;
     width: 140px;
@@ -98,6 +103,11 @@
 }
 
 @media (min-width: 320px) and (max-width: 480px){
+
+  #welcome {
+    left: 2%;
+    top: 115%;
+  }
 
   #button-nav {
     position: absolute;
