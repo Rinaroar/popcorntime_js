@@ -4,25 +4,25 @@ Gestion du cache
 
 const staticAssets = [
   '/',
-  './style/index.css',
-  './style/connection.css',
-  './style/addedRegister.css',
-  './style/favorites.css',
-  './style/movieList.css',
-  './style/nav.css',
-  './style/popin.css',
-  './style/searchBar.css',
-  './images/icons/icon-72x72.png',
-  './images/icons/icon-96x96.png',
-  './images/icons/icon-128x128.png',
-  './images/icons/icon-144x144.png',
-  './images/icons/icon-152x152.png',
-  './images/icons/icon-192x192.png',
-  './images/icons/icon-384x384.png',
-  './images/icons/icon-512x512.png',
+  '/style/index.css',
+  '/style/connection.css',
+  '/style/addedRegister.css',
+  '/style/favorites.css',
+  '/style/movieList.css',
+  '/style/nav.css',
+  '/style/popin.css',
+  '/style/searchBar.css',
+  '/images/icons/icon-72x72.png',
+  '/images/icons/icon-96x96.png',
+  '/images/icons/icon-128x128.png',
+  '/images/icons/icon-144x144.png',
+  '/images/icons/icon-152x152.png',
+  '/images/icons/icon-192x192.png',
+  '/images/icons/icon-384x384.png',
+  '/images/icons/icon-512x512.png',
   'index.html',
-  './js/app.js',
-  './js/fetch-class.js'
+  '/js/app.js',
+  '/js/fetch-class.js'
  ];
  //
 
