@@ -49,7 +49,7 @@
       // Register the service worker
         navigator.serviceWorker
         .register("./service.worker.js", {
-        scope: "/popcorntime_js/"
+        scope: "https://rinaroar.github.io/popcorntime_js/"
         })
         .then(function (reg) {
         console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
