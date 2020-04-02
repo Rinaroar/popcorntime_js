@@ -3,7 +3,7 @@ Gestion du cache
 */
 
 const staticAssets = [
-  '/',
+  './',
   './style/index.css',
   './style/connection.css',
   './style/addedRegister.css',
