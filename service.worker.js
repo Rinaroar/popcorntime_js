@@ -12,7 +12,6 @@ const staticAssets = [
   './style/nav.css',
   './style/popin.css',
   './style/searchBar.css',
-  //'/fallback/no-news.json',
   './images/icons/icon-72x72.png',
   './images/icons/icon-96x96.png',
   './images/icons/icon-128x128.png',
